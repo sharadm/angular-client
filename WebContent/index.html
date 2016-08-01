@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <title>AngularJS Microservice Client Example</title>
+    <link rel="stylesheet" href="app/style/bootstrap.min.css" />
+	<link rel="stylesheet" href="app/style/weather.css" />
+    <link href="app/style/app.css" rel="stylesheet" />
+</head>
+<body> 
+                                
+                                
+    <script src="app/script/core/jquery-2.0.3.min.js"></script>
+    <script src="app/script/core/angular.js"></script>
+    <script src="app/script/core/angular-route.js"></script>
+    <script src="app/script/core/angular-cookies.js"></script>
+
+    <script src="app.js"></script>
+    
+
+
+    <script src="app/script/services/weather.service.js"></script>
+
+    <script src="app/script/controller/weather.controller.js"></script>
+    
+    <IMG SRC="image/hackathon-2016-Aug.jpg" ALT="Technotsav" width="950" height="200" align="center" />
+    
+<div class="container ng-scope">
+		<style>thead {color:maroon;}
+				tbody {color:blue;}
+				
+		</style>
+  <div  class="panel panel-grey margin-bottom-40" style="margin-top:40px;" ng-controller="WeatherController">   
+	
+    <div class="panel-body">
+	<table class="table">
+	 <tbody>
+	  <tr> <td>	
+    <form name="form" id="form" role="form">
+        <div  ng-class="{ 'has-error': form.city.$dirty && form.city.$error.required }">            
+           <div class=col-md-4> <input type="text" name="city" id="city" class="form-control" placeholder="Enter the City Name" ng-model="city" required /> </div>
+            <span ng-show="form.city.$dirty && form.city.$error.required" class="help-block">City name is required</span>
+        </div>       
+        <div ng-class="{ 'has-error': form.city.$dirty && form.city.$error.required }">
+               <div class=col-md-4><button type="button"  ng-disabled ="city===''" name="getWeather" id="getWeather" ng-click="weather()" class="form-control btn btn-default">Get weather Details</button> </div>
+              <div class=col-md-3> <button type="button"  ng-disabled ="city===''" name="getForecast" id="getForecast" ng-click="forecast()" class="form-control btn btn-default">Get Forecast</button> </div>
+            
+        </div>
+     
+    </form>
+	</td> </tr>   
+     <tr> <td>
+	 <div   >
+                <div class="col-md-12"><h3>Weather Details for {{data.name}}</h3> </div>
+                
+                <div class= "col-md-12"><div class=col-md-3><h4>Date:</h4></div><div class="col-md-3">{{data.dt}}</div></div>
+				<div class= "col-md-12"><div class=col-md-3><h4>Temp:</h4></div><div class="col-md-3">{{data.main.temp}}</div></div>
+				<div class= "col-md-12"><div class=col-md-3><h4>Minimum Temp:</h4></div><div class="col-md-3">{{data.main.temp_min}}</div></div>
+                <div class= "col-md-12"><div class=col-md-3><h4>Humidity:</h4></div><div class="col-md-3">{{data.main.humidity}}</div></div>               
+     </div> </td>
+     <td>
+     <div  >
+                <div class="col-md-12"><h3>Forecast  Details</h3> </div>                
+               <div class= "col-md-12"><div class=col-md-3><h4>Date:</h4></div><div class="col-md-7"> {{data.list[0].dt_txt}}</div></div>				
+                <div class= "col-md-12"><div class=col-md-3><h4>Weather Type:</h4></div><div class="col-md-7">{{data.list[0].weather[0].main}}</div></div>
+                <div class= "col-md-12"><div class=col-md-3><h4>Description:</h4></div><div class="col-md-7">{{data.list[0].weather[0].description}}</div></div>              
+     </div>
+	 </td>
+	  </tbody>
+     </table>
+      </div>
+   </div>
+   
+ </div>
+</body>
+</html>

@@ -61,7 +61,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>MSAngularClient</finalName>
+		<finalName>ms-angular-ui</finalName>
 		<plugins>
 			
 			<plugin>

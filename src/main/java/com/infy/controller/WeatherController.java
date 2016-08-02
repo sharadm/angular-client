@@ -23,7 +23,7 @@ public class WeatherController {
 		RestTemplate restTemplate = new RestTemplate();
 
 		System.out.println(" restTemplate :::" + restTemplate);
-		String endpoint = "http://localhost:8080/weather/"+city;
+		String endpoint = "http://weather-ms-ms-pune.apps.infosys.openshift3roadshow.com/weather-ms-docker-1.0/weather/"+city;
 		System.out.println(" URL --->"+endpoint);
 		Weather weather = null;
 		try{
@@ -46,7 +46,7 @@ public class WeatherController {
 		RestTemplate restTemplate = new RestTemplate();
 
 		System.out.println(" restTemplate :::" + restTemplate);
-		String endpoint = "http://localhost:8080/forecast/"+city;
+		String endpoint = "http://forecast-ms-ms-pune.apps.infosys.openshift3roadshow.com/forecast-ms-docker-1.0/forecast/"+city;
 		System.out.println(" URL --->"+endpoint);
 		Forecast forecast = null;
 		try{
